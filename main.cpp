@@ -17,7 +17,14 @@ int main() {
     std::cout << std::endl << " Votre choix : ";
     std::cin >> choix;    
 
-  if(choix==1){
+    if(std::cin.fail() == true){
+      std::cout << std::endl << " *Mauvais choix, veuillez recommencer!" << std::endl;
+      std::cin.clear();
+      std::cin.ignore(INT_MAX, '\n');
+      std::cout << std::endl;
+    }
+
+    else if(choix==1){
 
       //Lecture du fichier hiscore.txt
       std::ifstream hiscore("hiscore.txt");
